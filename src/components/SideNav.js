@@ -2,6 +2,7 @@ import React from "react";
 import { useAuth0 } from "../react-auth0-spa";
 import { Link } from "react-router-dom";
 import styles from './SideNav.module.css';
+import RevanchardIMG from '../images/Revanchard.png';
 
 const SideNav = () => {
 
@@ -9,7 +10,9 @@ const SideNav = () => {
     const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
 
     if (loading || !user) {
-        return <button onClick={() => loginWithRedirect({})}>Log in</button>;
+        return <div className={styles.logincontainer}>
+            <button className={styles.loginbutton} onClick={() => loginWithRedirect({})}><img src={RevanchardIMG} alt="my image"></img></button>
+            </div>;
     }
 
     return (
